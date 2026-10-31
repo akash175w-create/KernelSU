@@ -31,5 +31,5 @@ fun getVersionCode(): Int {
 }
 
 fun getVersionName(): String {
-    return getGitDescribe()
+    return "Akash"
 }
