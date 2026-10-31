@@ -31,5 +31,5 @@ fun getVersionCode(): Int {
 }
 
 fun getVersionName(): String {
-    return "9572430284@AKASH"
+    return "8158977204@SOHAN 99999"
 }
