@@ -209,9 +209,9 @@ jobs:
       - name: Build with Gradle
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME=bgmi
+            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME=BGMI
           else
-            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME=bgmi
+            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME=BGMI
           fi
 
       - name: Upload build artifact
