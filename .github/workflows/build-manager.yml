@@ -99,7 +99,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-lkm.yml
     with:
-      package_name: com.android.sohansu
+      package_name: com.bgmi.android
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
     secrets: inherit
@@ -108,7 +108,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-xx-lkm.yml
     with:
-      package_name: com.android.sohansu
+      package_name: com.bgmi.android
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
       
@@ -209,9 +209,9 @@ jobs:
       - name: Build with Gradle
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.android.sohansu -PKSU_NAME="ICONSOHAN SU"
+            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME="bgmi"
           else
-            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.android.sohansu -PKSU_NAME="ICONSOHAN SU"
+            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME="bgmi"
           fi
 
       - name: Upload build artifact
@@ -342,7 +342,8 @@ jobs:
             -A "$SIGN_KEY_ALIAS" \
             -P "$SIGN_KEYSTORE_PASSWORD" \
             -S "$SIGN_KEY_PASSWORD" \
-            --strip
+            --strip \
+            -n BGMI
 
       - name: Upload build artifact
         if: ${{ github.event_name == 'pull_request' || (github.event_name != 'pull_request') || github.ref_type == 'tag' }}
