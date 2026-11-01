@@ -507,7 +507,7 @@ private fun SupportLinks(
     SegmentedColumn(modifier = modifier.fillMaxWidth()) {
         item {
             SegmentedListItem(
-                onClick = { onOpenUrl("https://patreon.com/weishu") },
+                onClick = { onOpenUrl("https://t.me/blazexmvp") },
                 headlineContent = { Text(stringResource(R.string.home_support_title)) },
                 supportingContent = { Text(stringResource(R.string.home_support_content)) },
                 leadingContent = {
@@ -527,17 +527,6 @@ private fun SupportLinks(
                 trailingContent = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null) },
             )
         }
-        item {
-            SegmentedListItem(
-                onClick = { onOpenUrl("https://t.me/ffjod1") },
-                headlineContent = { Text(stringResource(R.string.home_telegram_support_title)) },
-                supportingContent = { Text(stringResource(R.string.home_telegram_support_content)) },
-                leadingContent = {
-                    Icon(Icons.Filled.VolunteerActivism, stringResource(R.string.home_telegram_support_title))
-                },
-                trailingContent = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null) },
-            )
-        }
     }
 }
 
@@ -547,7 +536,7 @@ private fun ClassicSupportLinks(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(13.dp)) {
-        TonalCard(onClick = { onOpenUrl("https://patreon.com/weishu") }) {
+        TonalCard(onClick = { onOpenUrl("https://t.me/blazexmvp") }) {
             SupportLinkContent(
                 title = stringResource(R.string.home_support_title),
                 description = stringResource(R.string.home_support_content),
@@ -558,12 +547,6 @@ private fun ClassicSupportLinks(
             SupportLinkContent(
                 title = stringResource(R.string.home_learn_kernelsu),
                 description = stringResource(R.string.home_click_to_learn_kernelsu),
-            )
-        }
-        TonalCard(onClick = { onOpenUrl("https://t.me/ffjod1") }) {
-            SupportLinkContent(
-                title = stringResource(R.string.home_telegram_support_title),
-                description = stringResource(R.string.home_telegram_support_content),
             )
         }
     }

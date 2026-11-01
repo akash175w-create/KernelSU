@@ -99,7 +99,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-lkm.yml
     with:
-      package_name: com.android.akashsu
+      package_name: com.android.sohansu
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
     secrets: inherit
@@ -108,7 +108,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-xx-lkm.yml
     with:
-      package_name: com.android.akashsu
+      package_name: com.android.sohansu
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
       
@@ -209,9 +209,9 @@ jobs:
       - name: Build with Gradle
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.android.akashsu -PKSU_NAME="AKASH SU"
+            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.android.sohansu -PKSU_NAME="ICONSOHAN SU"
           else
-            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.android.akashsu -PKSU_NAME="AKASH SU"
+            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.android.sohansu -PKSU_NAME="ICONSOHAN SU"
           fi
 
       - name: Upload build artifact

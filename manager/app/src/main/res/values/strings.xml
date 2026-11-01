@@ -101,20 +101,18 @@
     <string name="show_system_apps">Show system apps</string>
     <string name="send_log">Send logs</string>
     <string name="safe_mode">Safe mode</string>
-    <string name="jailbreak_mode">AKASH MODE</string>
+    <string name="jailbreak_mode">ICONSOHAN MODE</string>
     <string name="home_jailbreak">Jailbreak</string>
     <string name="jailbreak_timeout">Jailbreak may have failed, please check logs</string>
     <string name="jailbreak_reboot_warning">You are in Jailbreak mode. Rebooting will lose root access, and you will have to jailbreak again after the device starts up. Reboot anyway?</string>
     <string name="safe_mode_module_disabled">Module installation is disabled in safe mode</string>
     <string name="reboot_to_apply">Reboot to take effect</string>
     <string name="module_magisk_conflict">Modules are unavailable due to a conflict with Magisk!</string>
-    <string name="home_learn_kernelsu">Learn KernelSU</string>
+    <string name="home_learn_kernelsu">AKASHXSOHAN</string>
     <string name="home_learn_kernelsu_url">https://kernelsu.org/guide/what-is-kernelsu.html</string>
     <string name="home_click_to_learn_kernelsu">Learn how to install KernelSU and use modules.</string>
-    <string name="home_support_title">Support Us</string>
-    <string name="home_support_content">KernelSU is, and always will be, free, and open source. However, you can show us that you care by making a donation.</string>
-    <string name="home_telegram_support_title">Telegram Support</string>
-    <string name="home_telegram_support_content">Contact @ffjod1 on Telegram.</string>
+    <string name="home_support_title">Telegram Support</string>
+    <string name="home_support_content">Contact @blazexmvp on Telegram.</string>
     <string name="home_gki_warning">Starting from v3.0.0, the GKI work mode will be used only in testing environments. We do not recommend it for daily use, and image files will no longer be provided.</string>
     <string name="about_source_code"><![CDATA[View source code at %1$s<br/>Join our %2$s channel]]></string>
     <string name="profile" translatable="false">App Profile</string>
