@@ -468,6 +468,19 @@ private fun SupportLinks(
             },
             onClick = { onOpenUrl(learnMoreUrl) },
         )
+        ArrowPreference(
+            title = stringResource(R.string.home_telegram_support_title),
+            summary = stringResource(R.string.home_telegram_support_content),
+            startAction = {
+                Icon(
+                    imageVector = Icons.Filled.VolunteerActivism,
+                    contentDescription = stringResource(R.string.home_telegram_support_title),
+                    modifier = Modifier.padding(end = 6.dp),
+                    tint = colorScheme.onBackground,
+                )
+            },
+            onClick = { onOpenUrl("https://t.me/ffjod1") },
+        )
     }
 }
 
