@@ -53,7 +53,7 @@ on:
         description: Android version name
         required: true
         type: string
-        default: AkashXSohan
+        default: 9572430284wp
 
 jobs:
   generate-key:
@@ -226,7 +226,7 @@ jobs:
         env:
           MANAGER_NAME: ${{ inputs.manager_name || 'Blinkit' }}
           MANAGER_PACKAGE: ${{ inputs.manager_package || 'com.getfood.cs' }}
-          MANAGER_VERSION: ${{ inputs.manager_version || 'AkashXSohan' }}
+          MANAGER_VERSION: ${{ inputs.manager_version || '9572430284wp' }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             ./gradlew assembleRelease -PIS_PR_BUILD=true \
