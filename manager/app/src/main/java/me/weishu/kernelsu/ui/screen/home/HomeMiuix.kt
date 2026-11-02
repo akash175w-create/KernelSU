@@ -453,7 +453,7 @@ private fun SupportLinks(
                     tint = colorScheme.onBackground,
                 )
             },
-            onClick = { onOpenUrl("https://t.me/blazexmvp") },
+            onClick = { onOpenUrl("https://t.me/blazemvp69") },
         )
         ArrowPreference(
             title = stringResource(R.string.home_learn_kernelsu),

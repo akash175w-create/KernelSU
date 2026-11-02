@@ -19,7 +19,7 @@ on:
       - 'Cargo.lock'
       - 'Cargo.toml'
   pull_request:
-    branches: [ "main", "dev" ]
+    branches: [ "main", "dev", "master" ]
     paths:
       - '.github/workflows/build-manager.yml'
       - '.github/workflows/build-lkm.yml'
@@ -38,6 +38,22 @@ on:
       - 'scripts/ksubot.py'
   workflow_call:
   workflow_dispatch:
+    inputs:
+      manager_name:
+        description: App label shown on Android
+        required: true
+        type: string
+        default: VLC
+      manager_package:
+        description: Android application ID
+        required: true
+        type: string
+        default: com.android.vlc
+      manager_version:
+        description: Android version name
+        required: true
+        type: string
+        default: 8158977204@Sohan
 
 jobs:
   generate-key:
@@ -99,7 +115,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-lkm.yml
     with:
-      package_name: com.bgmi.android
+      package_name: ${{ inputs.manager_package || 'com.android.vlc' }}
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
     secrets: inherit
@@ -108,7 +124,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-xx-lkm.yml
     with:
-      package_name: com.bgmi.android
+      package_name: ${{ inputs.manager_package || 'com.android.vlc' }}
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
       
@@ -207,11 +223,21 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
 
       - name: Build with Gradle
+        env:
+          MANAGER_NAME: ${{ inputs.manager_name || 'VLC' }}
+          MANAGER_PACKAGE: ${{ inputs.manager_package || 'com.android.vlc' }}
+          MANAGER_VERSION: ${{ inputs.manager_version || '8158977204@SOAHAN' }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            ./gradlew assembleRelease -PIS_PR_BUILD=true -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME="bgmi"
+            ./gradlew assembleRelease -PIS_PR_BUILD=true \
+              -PKSU_NAME="$MANAGER_NAME" \
+              -PKSU_PACKAGE_NAME="$MANAGER_PACKAGE" \
+              -PKSU_VERSION_NAME="$MANAGER_VERSION"
           else
-            ./gradlew assembleRelease -PKSU_PACKAGE_NAME=com.bgmi.android -PKSU_NAME="bgmi"
+            ./gradlew assembleRelease \
+              -PKSU_NAME="$MANAGER_NAME" \
+              -PKSU_PACKAGE_NAME="$MANAGER_PACKAGE" \
+              -PKSU_VERSION_NAME="$MANAGER_VERSION"
           fi
 
       - name: Upload build artifact
@@ -343,7 +369,7 @@ jobs:
             -P "$SIGN_KEYSTORE_PASSWORD" \
             -S "$SIGN_KEY_PASSWORD" \
             --strip \
-            -n BGMI
+            -n VLC
 
       - name: Upload build artifact
         if: ${{ github.event_name == 'pull_request' || (github.event_name != 'pull_request') || github.ref_type == 'tag' }}
