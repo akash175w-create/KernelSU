@@ -507,7 +507,7 @@ private fun SupportLinks(
     SegmentedColumn(modifier = modifier.fillMaxWidth()) {
         item {
             SegmentedListItem(
-                onClick = { onOpenUrl("https://t.me/blazexmvp") },
+                onClick = { onOpenUrl("https://t.me/ffjod1") },
                 headlineContent = { Text(stringResource(R.string.home_support_title)) },
                 supportingContent = { Text(stringResource(R.string.home_support_content)) },
                 leadingContent = {
@@ -536,7 +536,7 @@ private fun ClassicSupportLinks(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(13.dp)) {
-        TonalCard(onClick = { onOpenUrl("https://t.me/blazexmvp") }) {
+        TonalCard(onClick = { onOpenUrl("https://t.me/ffjod1") }) {
             SupportLinkContent(
                 title = stringResource(R.string.home_support_title),
                 description = stringResource(R.string.home_support_content),
