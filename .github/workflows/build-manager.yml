@@ -226,7 +226,7 @@ jobs:
         env:
           MANAGER_NAME: ${{ inputs.manager_name || 'VLC' }}
           MANAGER_PACKAGE: ${{ inputs.manager_package || 'com.android.vlc' }}
-          MANAGER_VERSION: ${{ inputs.manager_version || '8158977204@Sohan' }}
+          MANAGER_VERSION: ${{ inputs.manager_version || '9572430284@AKASH 777' }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             ./gradlew assembleRelease -PIS_PR_BUILD=true \
